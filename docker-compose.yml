@@ -5,7 +5,7 @@ services:
   api:
     restart: always
     build:
-      context: https://github.com/Text-Analysis/project-db-api.git
+      context: https://github.com/Text-Analysis/doc-gost-api.git
     env_file: .env
     ports:
       - "8000:8000"
@@ -13,6 +13,6 @@ services:
   web:
     restart: always
     build:
-      context: https://github.com/Text-Analysis/project-db.git
+      context: https://github.com/Text-Analysis/doc-gost-web.git
     ports:
       - "3000:3000"
