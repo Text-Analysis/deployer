@@ -9,10 +9,24 @@ services:
     env_file: .env
     ports:
       - "8000:8000"
+    depends_on:
+      - mongo
 
   web:
     restart: always
     build:
       context: https://github.com/Text-Analysis/doc-gost-web.git
+    stdin_open: true
     ports:
       - "3000:3000"
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+    driver: local
